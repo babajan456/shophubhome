@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingCart, Search, Menu, X, User, Heart } from "lucide-react";
+import { ShoppingCart, Search, Menu, X, User, Heart, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { items, getItemCount } = useCart();
+  const { user, signOut, loading } = useAuth();
   const location = useLocation();
 
   const navigation = [
@@ -86,9 +89,31 @@ const Header = () => {
             </Button>
 
             {/* User Account */}
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
-            </Button>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <div className="px-2 py-1.5 text-sm text-muted-foreground">
+                    {user.email}
+                  </div>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={signOut}>
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link to="/auth">
+                <Button variant="ghost" size="icon">
+                  <User className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
 
             {/* Shopping Cart */}
             <Link to="/cart">
@@ -133,8 +158,26 @@ const Header = () => {
                   ))}
                   
                   <div className="pt-4 border-t">
-                    <Button className="w-full mb-2 btn-primary">Sign In</Button>
-                    <Button variant="outline" className="w-full btn-outline">Sign Up</Button>
+                    {user ? (
+                      <div className="space-y-2">
+                        <div className="px-4 py-2 text-sm text-muted-foreground">
+                          {user.email}
+                        </div>
+                        <Button onClick={signOut} variant="outline" className="w-full">
+                          <LogOut className="mr-2 h-4 w-4" />
+                          Sign Out
+                        </Button>
+                      </div>
+                    ) : (
+                      <>
+                        <Link to="/auth">
+                          <Button className="w-full mb-2 btn-primary">Sign In</Button>
+                        </Link>
+                        <Link to="/auth">
+                          <Button variant="outline" className="w-full btn-outline">Sign Up</Button>
+                        </Link>
+                      </>
+                    )}
                   </div>
                 </div>
               </SheetContent>
