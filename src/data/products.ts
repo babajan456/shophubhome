@@ -212,6 +212,269 @@ export const products: Product[] = [
       "Drainage": "Yes",
       "Color": "Matte White"
     }
+  },
+  {
+    id: "9",
+    title: "MacBook Air M2",
+    description: "Apple MacBook Air with M2 chip, 13.6-inch Liquid Retina display, 8GB RAM, 256GB SSD.",
+    price: 1199.99,
+    originalPrice: 1299.99,
+    discount: 8,
+    images: [
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&h=500&fit=crop"
+    ],
+    category: "Electronics",
+    rating: 4.9,
+    reviewCount: 342,
+    stock: 5,
+    isFeatured: true,
+    tags: ["apple", "laptop", "m2", "lightweight"],
+    specifications: {
+      "Processor": "Apple M2 8-core",
+      "Memory": "8GB unified",
+      "Storage": "256GB SSD",
+      "Display": "13.6\" Liquid Retina"
+    }
+  },
+  {
+    id: "10",
+    title: "iPhone 15 Pro",
+    description: "Latest iPhone with titanium design, A17 Pro chip, and advanced camera system.",
+    price: 999.99,
+    images: [
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=500&fit=crop"
+    ],
+    category: "Electronics",
+    rating: 4.8,
+    reviewCount: 567,
+    stock: 18,
+    isNew: true,
+    isFeatured: true,
+    tags: ["apple", "smartphone", "titanium", "camera"],
+    specifications: {
+      "Processor": "A17 Pro",
+      "Storage": "128GB",
+      "Camera": "48MP main",
+      "Display": "6.1\" Super Retina XDR"
+    }
+  },
+  {
+    id: "11",
+    title: "Designer Leather Jacket",
+    description: "Premium genuine leather jacket with classic design and superior craftsmanship.",
+    price: 299.99,
+    originalPrice: 399.99,
+    discount: 25,
+    images: [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=500&fit=crop"
+    ],
+    category: "Clothing",
+    rating: 4.6,
+    reviewCount: 134,
+    stock: 8,
+    tags: ["leather", "jacket", "premium", "classic"],
+    specifications: {
+      "Material": "100% Genuine Leather",
+      "Lining": "Polyester",
+      "Fit": "Slim fit",
+      "Care": "Professional cleaning"
+    }
+  },
+  {
+    id: "12",
+    title: "Luxury Watch Collection",
+    description: "Swiss-made automatic watch with sapphire crystal and leather strap.",
+    price: 1899.99,
+    images: [
+      "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=500&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500&h=500&fit=crop"
+    ],
+    category: "Clothing",
+    rating: 4.9,
+    reviewCount: 89,
+    stock: 3,
+    isFeatured: true,
+    tags: ["luxury", "watch", "swiss", "automatic"],
+    specifications: {
+      "Movement": "Swiss automatic",
+      "Case": "Stainless steel",
+      "Crystal": "Sapphire",
+      "Water Resistance": "100m"
+    }
+  },
+  {
+    id: "13",
+    title: "Gaming Mechanical Keyboard",
+    description: "RGB backlit mechanical keyboard with Cherry MX switches for ultimate gaming experience.",
+    price: 149.99,
+    originalPrice: 189.99,
+    discount: 21,
+    images: [
+      "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=500&h=500&fit=crop"
+    ],
+    category: "Electronics",
+    rating: 4.7,
+    reviewCount: 298,
+    stock: 15,
+    isNew: true,
+    tags: ["gaming", "mechanical", "rgb", "keyboard"],
+    specifications: {
+      "Switches": "Cherry MX Red",
+      "Backlighting": "RGB",
+      "Layout": "Full-size",
+      "Connection": "USB-C"
+    }
+  },
+  {
+    id: "14",
+    title: "Professional Camera Lens",
+    description: "85mm f/1.4 portrait lens with exceptional optical quality and beautiful bokeh.",
+    price: 799.99,
+    images: [
+      "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=500&h=500&fit=crop"
+    ],
+    category: "Electronics",
+    rating: 4.8,
+    reviewCount: 145,
+    stock: 7,
+    tags: ["photography", "lens", "portrait", "professional"],
+    specifications: {
+      "Focal Length": "85mm",
+      "Max Aperture": "f/1.4",
+      "Mount": "Canon EF",
+      "Weight": "950g"
+    }
+  },
+  {
+    id: "15",
+    title: "Scandinavian Dining Chair",
+    description: "Elegant wooden dining chair with comfortable cushion and modern Scandinavian design.",
+    price: 189.99,
+    images: [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
+      "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=500&h=500&fit=crop"
+    ],
+    category: "Home & Garden",
+    rating: 4.5,
+    reviewCount: 167,
+    stock: 12,
+    tags: ["furniture", "chair", "scandinavian", "wooden"],
+    specifications: {
+      "Material": "Solid oak wood",
+      "Cushion": "High-density foam",
+      "Dimensions": "45×52×78cm",
+      "Weight": "6.5kg"
+    }
+  },
+  {
+    id: "16",
+    title: "Wireless Gaming Mouse",
+    description: "High-precision wireless gaming mouse with customizable DPI and RGB lighting.",
+    price: 79.99,
+    originalPrice: 99.99,
+    discount: 20,
+    images: [
+      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop"
+    ],
+    category: "Electronics",
+    rating: 4.6,
+    reviewCount: 223,
+    stock: 20,
+    tags: ["gaming", "mouse", "wireless", "rgb"],
+    specifications: {
+      "DPI": "Up to 25,600",
+      "Battery": "70-hour life",
+      "Connection": "2.4GHz wireless",
+      "Buttons": "8 programmable"
+    }
+  },
+  {
+    id: "17",
+    title: "Artisan Coffee Beans",
+    description: "Single-origin premium coffee beans roasted to perfection for the ultimate coffee experience.",
+    price: 24.99,
+    images: [
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=500&fit=crop"
+    ],
+    category: "Books & Media",
+    rating: 4.7,
+    reviewCount: 156,
+    stock: 35,
+    isNew: true,
+    tags: ["coffee", "artisan", "single-origin", "premium"],
+    specifications: {
+      "Origin": "Ethiopia",
+      "Roast": "Medium",
+      "Weight": "500g",
+      "Process": "Washed"
+    }
+  },
+  {
+    id: "18",
+    title: "Professional Tennis Racket",
+    description: "Carbon fiber tennis racket used by professionals, perfect balance of power and control.",
+    price: 259.99,
+    originalPrice: 319.99,
+    discount: 19,
+    images: [
+      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=500&h=500&fit=crop"
+    ],
+    category: "Sports & Outdoors",
+    rating: 4.8,
+    reviewCount: 187,
+    stock: 9,
+    isFeatured: true,
+    tags: ["tennis", "professional", "carbon-fiber", "sports"],
+    specifications: {
+      "Weight": "300g",
+      "Head Size": "100 sq in",
+      "String Pattern": "16x19",
+      "Balance": "320mm"
+    }
+  },
+  {
+    id: "19",
+    title: "Smart Fitness Tracker",
+    description: "Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life.",
+    price: 199.99,
+    images: [
+      "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&h=500&fit=crop"
+    ],
+    category: "Sports & Outdoors",
+    rating: 4.5,
+    reviewCount: 312,
+    stock: 25,
+    isNew: true,
+    tags: ["fitness", "tracker", "smartwatch", "health"],
+    specifications: {
+      "Battery": "7 days",
+      "Display": "1.4\" AMOLED",
+      "GPS": "Built-in",
+      "Water Resistance": "5ATM"
+    }
+  },
+  {
+    id: "20",
+    title: "Vintage Vinyl Record Player",
+    description: "Classic turntable with modern features, perfect for vinyl enthusiasts and audiophiles.",
+    price: 349.99,
+    images: [
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=500&fit=crop"
+    ],
+    category: "Books & Media",
+    rating: 4.6,
+    reviewCount: 98,
+    stock: 6,
+    tags: ["vinyl", "turntable", "vintage", "audiophile"],
+    specifications: {
+      "Speeds": "33⅓ & 45 RPM",
+      "Drive": "Belt drive",
+      "Cartridge": "Pre-installed",
+      "Output": "Line & Phono"
+    }
   }
 ];
 
