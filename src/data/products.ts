@@ -5,7 +5,7 @@ import headphones1 from "@/assets/images/headphones-1.jpg";
 import headphones2 from "@/assets/images/headphones-2.jpg";
 import laptop1 from "@/assets/images/laptop-1.jpg";
 import laptop2 from "@/assets/images/laptop-2.jpg";
-import iphone15ProTitanium from "@/assets/images/iphone-15-pro-titanium.jpg";
+import securityCamera from "@/assets/images/security-camera.jpg";
 import tablet from "@/assets/images/tablet.jpg";
 import laptopDesk from "@/assets/images/laptop-desk.jpg";
 import watch from "@/assets/images/watch.jpg";
@@ -296,20 +296,20 @@ export const products: Product[] = [
   },
   {
     id: "10",
-    title: "iPhone 15 Pro",
-    description: "Latest iPhone with titanium design, A17 Pro chip, and advanced camera system.",
-    price: 999.99,
+    title: "Security Camera",
+    description: "Professional HD security camera with night vision, motion detection, and weatherproof design for home and business surveillance.",
+    price: 149.99,
     images: [
-      iphone15ProTitanium,
-      macbookCode
+      securityCamera,
+      circuitBoard
     ],
     category: "Electronics",
-    rating: 4.8,
-    reviewCount: 567,
-    stock: 18,
+    rating: 4.6,
+    reviewCount: 234,
+    stock: 25,
     isNew: true,
     isFeatured: true,
-    tags: ["apple", "smartphone", "titanium", "camera"],
+    tags: ["security", "surveillance", "camera", "hd", "night-vision"],
     specifications: {
       "Processor": "A17 Pro",
       "Storage": "128GB",
