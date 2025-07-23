@@ -31,12 +31,11 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <span className="font-display font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              ShopHub
-            </span>
+            <img 
+              src="/lovable-uploads/05331718-0dd3-4749-aa07-0e9ed80b11dc.png" 
+              alt="ShopHub Logo" 
+              className="h-10 w-auto group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -137,10 +136,11 @@ const Header = () => {
               <SheetContent side="right" className="w-80">
                 <div className="flex flex-col space-y-4 mt-6">
                   <div className="flex items-center space-x-2 mb-6">
-                    <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                      <span className="text-white font-bold text-sm">S</span>
-                    </div>
-                    <span className="font-display font-bold text-xl">ShopHub</span>
+                    <img 
+                      src="/lovable-uploads/05331718-0dd3-4749-aa07-0e9ed80b11dc.png" 
+                      alt="ShopHub Logo" 
+                      className="h-8 w-auto"
+                    />
                   </div>
                   
                   {navigation.map((item) => (
