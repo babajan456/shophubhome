@@ -1,12 +1,26 @@
 import { useState, useMemo } from "react";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import ProductQuickView from "@/components/ProductQuickView";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Clock, Flame, Star, Zap } from "lucide-react";
+import { Product } from "@/types";
 
 const Deals = () => {
   const [selectedDealType, setSelectedDealType] = useState<string>("all");
+  const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
+  const handleQuickView = (product: Product) => {
+    setQuickViewProduct(product);
+    setIsQuickViewOpen(true);
+  };
+
+  const handleCloseQuickView = () => {
+    setIsQuickViewOpen(false);
+    setQuickViewProduct(null);
+  };
 
   // Generate deals from existing products
   const dealsData = useMemo(() => {
@@ -114,7 +128,7 @@ const Deals = () => {
               <ProductCard product={{
                 ...deal,
                 price: deal.salePrice
-              }} />
+              }} onQuickView={handleQuickView} />
 
               {/* Deal Info Overlay */}
               <CardContent className="pt-4">
@@ -167,6 +181,13 @@ const Deals = () => {
           </Card>
         </div>
       </div>
+
+      {/* Quick View Modal */}
+      <ProductQuickView
+        product={quickViewProduct}
+        isOpen={isQuickViewOpen}
+        onClose={handleCloseQuickView}
+      />
     </div>
   );
 };
