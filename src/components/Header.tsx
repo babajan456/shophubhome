@@ -30,12 +30,16 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <img 
-              src="/lovable-uploads/05331718-0dd3-4749-aa07-0e9ed80b11dc.png" 
-              alt="ShopHub Logo" 
-              className="h-10 w-auto group-hover:scale-105 transition-transform"
-            />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-elegant">
+                <ShoppingCart className="h-5 w-5 text-white" />
+              </div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+            </div>
+            <span className="font-display font-bold text-xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              ShopHub
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -135,12 +139,14 @@ const Header = () => {
               </SheetTrigger>
               <SheetContent side="right" className="w-80">
                 <div className="flex flex-col space-y-4 mt-6">
-                  <div className="flex items-center space-x-2 mb-6">
-                    <img 
-                      src="/lovable-uploads/05331718-0dd3-4749-aa07-0e9ed80b11dc.png" 
-                      alt="ShopHub Logo" 
-                      className="h-8 w-auto"
-                    />
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="relative">
+                      <div className="w-8 h-8 bg-gradient-primary rounded-xl flex items-center justify-center shadow-elegant">
+                        <ShoppingCart className="h-4 w-4 text-white" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                    </div>
+                    <span className="font-display font-bold text-lg">ShopHub</span>
                   </div>
                   
                   {navigation.map((item) => (
