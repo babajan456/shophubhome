@@ -5,7 +5,7 @@ import headphones1 from "@/assets/images/headphones-1.jpg";
 import headphones2 from "@/assets/images/headphones-2.jpg";
 import laptop1 from "@/assets/images/laptop-1.jpg";
 import laptop2 from "@/assets/images/laptop-2.jpg";
-import phoneIphone from "@/assets/images/phone-iphone.jpg";
+import phoneIphone from "@/assets/https://www.google.com/url?sa=i&url=https%3A%2F%2Finspireonline.in%2Fproducts%2Fiphone-15-mtp13hn-a%3Fsrsltid%3DAfmBOooZD1pWu2OpXvwdfznFcNhf1lTshZSsst8EYks1q6mHuuOcrJXr&psig=AOvVaw2YzLudzroZrQYU2ZkMbRMf&ust=1753354993607000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMjYzL_q0o4DFQAAAAAdAAAAABAE";
 import tablet from "@/assets/images/tablet.jpg";
 import laptopDesk from "@/assets/images/laptop-desk.jpg";
 import watch from "@/assets/images/watch.jpg";
