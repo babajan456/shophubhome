@@ -1,5 +1,38 @@
 import { Product, Category } from "@/types";
 
+// Import local images
+import headphones1 from "@/assets/images/headphones-1.jpg";
+import headphones2 from "@/assets/images/headphones-2.jpg";
+import laptop1 from "@/assets/images/laptop-1.jpg";
+import laptop2 from "@/assets/images/laptop-2.jpg";
+import phoneIphone from "@/assets/images/phone-iphone.jpg";
+import tablet from "@/assets/images/tablet.jpg";
+import laptopDesk from "@/assets/images/laptop-desk.jpg";
+import watch from "@/assets/images/watch.jpg";
+import sneakers1 from "@/assets/images/sneakers-1.jpg";
+import sneakers2 from "@/assets/images/sneakers-2.jpg";
+import camera from "@/assets/images/camera.jpg";
+import macbook1 from "@/assets/images/macbook-1.jpg";
+import macbook2 from "@/assets/images/macbook-2.jpg";
+import programmingMonitor from "@/assets/images/programming-monitor.jpg";
+import colorfulCode from "@/assets/images/colorful-code.jpg";
+import macbookCode from "@/assets/images/macbook-code.jpg";
+import circuitBoard from "@/assets/images/circuit-board.jpg";
+import laptopGray from "@/assets/images/laptop-gray.jpg";
+import leatherJacket1 from "@/assets/images/leather-jacket-1.jpg";
+import leatherJacket2 from "@/assets/images/leather-jacket-2.jpg";
+import luxuryWatch1 from "@/assets/images/luxury-watch-1.jpg";
+import luxuryWatch2 from "@/assets/images/luxury-watch-2.jpg";
+import gamingKeyboard from "@/assets/images/gaming-keyboard.jpg";
+import cameraLens from "@/assets/images/camera-lens.jpg";
+import diningChair1 from "@/assets/images/dining-chair-1.jpg";
+import diningChair2 from "@/assets/images/dining-chair-2.jpg";
+import gamingMouse from "@/assets/images/gaming-mouse.jpg";
+import coffeeBeans from "@/assets/images/coffee-beans.jpg";
+import tennisRacket from "@/assets/images/tennis-racket.jpg";
+import fitnessTracker from "@/assets/images/fitness-tracker.jpg";
+import vinylPlayer from "@/assets/images/vinyl-player.jpg";
+
 export const categories: Category[] = [
   {
     id: "1",
@@ -47,8 +80,8 @@ export const products: Product[] = [
     originalPrice: 249.99,
     discount: 20,
     images: [
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500&h=500&fit=crop"
+      headphones1,
+      headphones2
     ],
     category: "Electronics",
     rating: 4.8,
@@ -70,8 +103,8 @@ export const products: Product[] = [
     description: "Soft, comfortable organic cotton t-shirt in various colors and sizes.",
     price: 29.99,
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1622445275576-721325763afe?w=500&h=500&fit=crop"
+      laptop1,
+      laptop2
     ],
     category: "Clothing",
     rating: 4.5,
@@ -93,7 +126,7 @@ export const products: Product[] = [
     originalPrice: 179.99,
     discount: 17,
     images: [
-      "https://images.unsplash.com/photo-1558618666-fbd2c20cd3ac?w=500&h=500&fit=crop"
+      camera
     ],
     category: "Electronics",
     rating: 4.6,
@@ -114,7 +147,7 @@ export const products: Product[] = [
     description: "Non-slip yoga mat perfect for home workouts and studio classes.",
     price: 39.99,
     images: [
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=500&h=500&fit=crop"
+      tablet
     ],
     category: "Sports & Outdoors",
     rating: 4.7,
@@ -134,7 +167,7 @@ export const products: Product[] = [
     description: "Beautiful collection of photography and art books perfect for any coffee table.",
     price: 89.99,
     images: [
-      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&h=500&fit=crop"
+      laptopDesk
     ],
     category: "Books & Media",
     rating: 4.4,
@@ -154,7 +187,7 @@ export const products: Product[] = [
     description: "Modern LED desk lamp with adjustable brightness and USB charging port.",
     price: 79.99,
     images: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop"
+      watch
     ],
     category: "Home & Garden",
     rating: 4.5,
@@ -177,8 +210,8 @@ export const products: Product[] = [
     originalPrice: 159.99,
     discount: 19,
     images: [
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&h=500&fit=crop"
+      sneakers1,
+      sneakers2
     ],
     category: "Sports & Outdoors",
     rating: 4.8,
@@ -199,7 +232,7 @@ export const products: Product[] = [
     description: "Set of 3 modern ceramic plant pots in different sizes with drainage holes.",
     price: 49.99,
     images: [
-      "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&h=500&fit=crop"
+      camera
     ],
     category: "Home & Garden",
     rating: 4.3,
@@ -221,8 +254,8 @@ export const products: Product[] = [
     originalPrice: 1299.99,
     discount: 8,
     images: [
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500&h=500&fit=crop"
+      macbook1,
+      macbook2
     ],
     category: "Electronics",
     rating: 4.9,
@@ -243,8 +276,8 @@ export const products: Product[] = [
     description: "Latest iPhone with titanium design, A17 Pro chip, and advanced camera system.",
     price: 999.99,
     images: [
-      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=500&fit=crop"
+      phoneIphone,
+      macbookCode
     ],
     category: "Electronics",
     rating: 4.8,
@@ -268,8 +301,8 @@ export const products: Product[] = [
     originalPrice: 399.99,
     discount: 25,
     images: [
-      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&h=500&fit=crop"
+      leatherJacket1,
+      leatherJacket2
     ],
     category: "Clothing",
     rating: 4.6,
@@ -289,8 +322,8 @@ export const products: Product[] = [
     description: "Swiss-made automatic watch with sapphire crystal and leather strap.",
     price: 1899.99,
     images: [
-      "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500&h=500&fit=crop"
+      luxuryWatch1,
+      luxuryWatch2
     ],
     category: "Clothing",
     rating: 4.9,
@@ -313,7 +346,7 @@ export const products: Product[] = [
     originalPrice: 189.99,
     discount: 21,
     images: [
-      "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=500&h=500&fit=crop"
+      gamingKeyboard
     ],
     category: "Electronics",
     rating: 4.7,
@@ -334,7 +367,7 @@ export const products: Product[] = [
     description: "85mm f/1.4 portrait lens with exceptional optical quality and beautiful bokeh.",
     price: 799.99,
     images: [
-      "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=500&h=500&fit=crop"
+      cameraLens
     ],
     category: "Electronics",
     rating: 4.8,
@@ -354,8 +387,8 @@ export const products: Product[] = [
     description: "Elegant wooden dining chair with comfortable cushion and modern Scandinavian design.",
     price: 189.99,
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
-      "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=500&h=500&fit=crop"
+      diningChair1,
+      diningChair2
     ],
     category: "Home & Garden",
     rating: 4.5,
@@ -377,7 +410,7 @@ export const products: Product[] = [
     originalPrice: 99.99,
     discount: 20,
     images: [
-      "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop"
+      gamingMouse
     ],
     category: "Electronics",
     rating: 4.6,
@@ -397,7 +430,7 @@ export const products: Product[] = [
     description: "Single-origin premium coffee beans roasted to perfection for the ultimate coffee experience.",
     price: 24.99,
     images: [
-      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=500&fit=crop"
+      coffeeBeans
     ],
     category: "Books & Media",
     rating: 4.7,
@@ -420,7 +453,7 @@ export const products: Product[] = [
     originalPrice: 319.99,
     discount: 19,
     images: [
-      "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=500&h=500&fit=crop"
+      tennisRacket
     ],
     category: "Sports & Outdoors",
     rating: 4.8,
@@ -441,7 +474,7 @@ export const products: Product[] = [
     description: "Advanced fitness tracker with heart rate monitoring, GPS, and 7-day battery life.",
     price: 199.99,
     images: [
-      "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500&h=500&fit=crop"
+      fitnessTracker
     ],
     category: "Sports & Outdoors",
     rating: 4.5,
@@ -462,7 +495,7 @@ export const products: Product[] = [
     description: "Classic turntable with modern features, perfect for vinyl enthusiasts and audiophiles.",
     price: 349.99,
     images: [
-      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=500&fit=crop"
+      vinylPlayer
     ],
     category: "Books & Media",
     rating: 4.6,
