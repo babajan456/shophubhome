@@ -5,7 +5,7 @@ import headphones1 from "@/assets/images/headphones-1.jpg";
 import headphones2 from "@/assets/images/headphones-2.jpg";
 import laptop1 from "@/assets/images/laptop-1.jpg";
 import laptop2 from "@/assets/images/laptop-2.jpg";
-import iphone15Pro from "@/assets/images/iphone-15-pro.jpg";
+import iphone15ProTitanium from "@/assets/images/iphone-15-pro-titanium.jpg";
 import tablet from "@/assets/images/tablet.jpg";
 import laptopDesk from "@/assets/images/laptop-desk.jpg";
 import watch from "@/assets/images/watch.jpg";
@@ -300,7 +300,7 @@ export const products: Product[] = [
     description: "Latest iPhone with titanium design, A17 Pro chip, and advanced camera system.",
     price: 999.99,
     images: [
-      iphone15Pro,
+      iphone15ProTitanium,
       macbookCode
     ],
     category: "Electronics",
