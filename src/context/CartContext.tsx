@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { Product } from "@/types";
+import { encryptData, decryptData } from "@/utils/encryption";
 
 interface CartItem {
   product: Product;
@@ -119,22 +120,29 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     itemCount: 0,
   });
 
-  // Load cart from localStorage on mount
+  // Load cart from encrypted localStorage on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       try {
-        const parsedCart = JSON.parse(savedCart);
-        dispatch({ type: "LOAD_CART", payload: parsedCart });
+        const decryptedCart = decryptData(savedCart);
+        if (decryptedCart && Array.isArray(decryptedCart)) {
+          dispatch({ type: "LOAD_CART", payload: decryptedCart });
+        }
       } catch (error) {
         console.error("Failed to load cart from localStorage:", error);
+        // Clear corrupted data
+        localStorage.removeItem("cart");
       }
     }
   }, []);
 
-  // Save cart to localStorage whenever it changes
+  // Save cart to encrypted localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(state.items));
+    const encryptedCart = encryptData(state.items);
+    if (encryptedCart) {
+      localStorage.setItem("cart", encryptedCart);
+    }
   }, [state.items]);
 
   const addItem = (product: Product) => {

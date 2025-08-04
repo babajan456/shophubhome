@@ -88,8 +88,20 @@ const Auth = () => {
       return;
     }
 
-    if (signupData.password.length < 6) {
-      setError("Password must be at least 6 characters long.");
+    // Enhanced password validation
+    if (signupData.password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      setIsLoading(false);
+      return;
+    }
+
+    // Check for password complexity
+    const hasUpperCase = /[A-Z]/.test(signupData.password);
+    const hasLowerCase = /[a-z]/.test(signupData.password);
+    const hasNumbers = /\d/.test(signupData.password);
+    
+    if (!hasUpperCase || !hasLowerCase || !hasNumbers) {
+      setError("Password must contain at least one uppercase letter, one lowercase letter, and one number.");
       setIsLoading(false);
       return;
     }
@@ -254,11 +266,12 @@ const Auth = () => {
                       <Input
                         id="signup-password"
                         type="password"
-                        placeholder="Create a password"
-                        className="pl-10"
-                        value={signupData.password}
-                        onChange={(e) => setSignupData(prev => ({ ...prev, password: e.target.value }))}
-                        required
+                         placeholder="Create a password (min. 8 chars)"
+                         className="pl-10"
+                         value={signupData.password}
+                         onChange={(e) => setSignupData(prev => ({ ...prev, password: e.target.value }))}
+                         minLength={8}
+                         required
                       />
                     </div>
                   </div>

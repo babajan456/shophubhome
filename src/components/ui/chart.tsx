@@ -70,31 +70,32 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     ([_, config]) => config.theme || config.color
   )
 
-  if (!colorConfig.length) {
-    return null
-  }
+  if (!colorConfig.length) return null
+
+  // Create CSS safely without dangerouslySetInnerHTML
+  const cssContent = Object.entries(THEMES)
+    .map(([theme, prefix]) => {
+      const styles = colorConfig
+        .map(([key, itemConfig]) => {
+          const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color
+          if (!color) return ''
+          // Sanitize color value to prevent injection
+          const sanitizedColor = color.replace(/[^\w\s#(),.%-]/g, '')
+          return `  --color-${key}: ${sanitizedColor};`
+        })
+        .filter(Boolean)
+        .join('\n')
+      
+      if (!styles) return ''
+      // Sanitize ID to prevent injection
+      const sanitizedId = id.replace(/[^\w-]/g, '')
+      return `${prefix} [data-chart="${sanitizedId}"] {\n${styles}\n}`
+    })
+    .filter(Boolean)
+    .join('\n')
 
   return (
-    <style
-      dangerouslySetInnerHTML={{
-        __html: Object.entries(THEMES)
-          .map(
-            ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
-${colorConfig
-  .map(([key, itemConfig]) => {
-    const color =
-      itemConfig.theme?.[theme as keyof typeof itemConfig.theme] ||
-      itemConfig.color
-    return color ? `  --color-${key}: ${color};` : null
-  })
-  .join("\n")}
-}
-`
-          )
-          .join("\n"),
-      }}
-    />
+    <style>{cssContent}</style>
   )
 }
 
