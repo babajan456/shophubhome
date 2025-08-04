@@ -6,6 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ProductCard from "@/components/ProductCard";
 import ProductQuickView from "@/components/ProductQuickView";
+import { Scene3D } from "@/components/3d/Scene3D";
+import { FloatingShapes } from "@/components/3d/Shapes3D";
+import { Hero3D } from "@/components/3d/Hero3D";
+import { CategoryIcons3D } from "@/components/3d/CategoryIcons3D";
 import { featuredProducts, newProducts, saleProducts, categories } from "@/data/products";
 import { Product } from "@/types";
 
@@ -49,46 +53,61 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* 3D Hero Section */}
       <section className="relative hero-gradient text-white py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
+        
+        {/* 3D Background */}
+        <div className="absolute inset-0">
+          <Scene3D cameraPosition={[0, 0, 6]}>
+            <FloatingShapes />
+            <Hero3D />
+          </Scene3D>
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-white/20 text-white border-white/30">
+            <Badge className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
               ✨ New Collection Available
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 animate-fade-up">
-              Discover Your Perfect
-              <span className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
+            <div className="mb-6 animate-fade-up">
+              <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
+                Discover Your Perfect
+              </h1>
+              <span className="block text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
                 Shopping Experience
               </span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-up" style={{animationDelay: '0.1s'}}>
+            </div>
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-up backdrop-blur-sm bg-black/20 rounded-lg p-4" style={{animationDelay: '0.1s'}}>
               Shop premium products with confidence. From electronics to fashion, we have everything you need with fast delivery and exceptional customer service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style={{animationDelay: '0.2s'}}>
               <Link to="/products">
-                <Button size="lg" className="btn-accent text-lg px-8 py-3">
+                <Button size="lg" className="btn-accent text-lg px-8 py-3 backdrop-blur-sm">
                   Shop Now <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary backdrop-blur-sm">
                 View Collections
               </Button>
             </div>
           </div>
         </div>
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-accent/20 rounded-full blur-3xl animate-bounce-subtle"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl animate-bounce-subtle" style={{animationDelay: '1s'}}></div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 surface-gradient">
-        <div className="container mx-auto px-4">
+      {/* 3D Features Section */}
+      <section className="py-16 surface-gradient relative overflow-hidden">
+        {/* 3D Background for features */}
+        <div className="absolute inset-0 opacity-30">
+          <Scene3D cameraPosition={[0, 0, 10]} enableControls={false}>
+            <CategoryIcons3D />
+          </Scene3D>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center border-0 shadow-soft hover:shadow-medium transition-all duration-300">
+              <Card key={index} className="text-center border-0 shadow-soft hover:shadow-medium transition-all duration-300 backdrop-blur-sm bg-white/90 hover:bg-white/95 hover:scale-105">
                 <CardContent className="p-6">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-accent">
                     {feature.icon}
@@ -118,9 +137,9 @@ const Home = () => {
                 to={`/products?category=${category.slug}`}
                 className="group"
               >
-                <Card className="hover:shadow-medium transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <Card className="hover:shadow-medium transition-all duration-300 hover:-translate-y-1 overflow-hidden group hover:scale-105 backdrop-blur-sm bg-white/95">
                   <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 group-hover:rotate-12">
                       <span className="text-2xl text-white font-bold">
                         {category.name.charAt(0)}
                       </span>
@@ -159,12 +178,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Sale Banner */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-destructive to-red-600 rounded-2xl p-8 md:p-12 text-white text-center relative overflow-hidden">
+      {/* 3D Sale Banner */}
+      <section className="py-16 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="bg-gradient-to-r from-destructive to-red-600 rounded-2xl p-8 md:p-12 text-white text-center relative overflow-hidden backdrop-blur-sm">
+            {/* 3D Background for sale section */}
+            <div className="absolute inset-0 opacity-20">
+              <Scene3D cameraPosition={[0, 0, 8]}>
+                <FloatingShapes />
+              </Scene3D>
+            </div>
+            
             <div className="relative z-10">
-              <Badge className="mb-4 bg-white text-destructive">Limited Time</Badge>
+              <Badge className="mb-4 bg-white text-destructive backdrop-blur-sm">Limited Time</Badge>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 Up to 50% Off Sale
               </h2>
@@ -172,13 +198,11 @@ const Home = () => {
                 Don't miss out on incredible deals across all categories. Limited stock available!
               </p>
               <Link to="/products?sale=true">
-                <Button size="lg" className="bg-white text-destructive hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-destructive hover:bg-gray-100 backdrop-blur-sm hover:scale-105 transition-all">
                   Shop Sale Items <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24"></div>
           </div>
         </div>
       </section>
@@ -214,7 +238,7 @@ const Home = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               />
-              <Button className="btn-primary px-8">Subscribe</Button>
+              <Button className="btn-primary px-8 hover:scale-105 transition-all">Subscribe</Button>
             </div>
           </div>
         </div>

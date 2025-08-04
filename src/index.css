@@ -214,4 +214,75 @@
   .transition-fast {
     transition: var(--transition-fast);
   }
+
+  /* 3D Animation Classes */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-rotate-3d {
+    animation: rotate3d 8s linear infinite;
+  }
+
+  .animate-pulse-3d {
+    animation: pulse3d 2s ease-in-out infinite;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Enhanced Hover Effects for 3D */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* 3D Button Effects */
+  .btn-3d {
+    position: relative;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  .btn-3d:hover {
+    transform: translateY(-2px) rotateX(10deg);
+  }
+
+  .btn-3d:active {
+    transform: translateY(0px) rotateX(0deg);
+  }
+}
+
+/* 3D Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotateX(0deg); }
+  50% { transform: translateY(-10px) rotateX(5deg); }
+}
+
+@keyframes rotate3d {
+  0% { transform: rotateY(0deg) rotateX(0deg); }
+  25% { transform: rotateY(90deg) rotateX(5deg); }
+  50% { transform: rotateY(180deg) rotateX(0deg); }
+  75% { transform: rotateY(270deg) rotateX(-5deg); }
+  100% { transform: rotateY(360deg) rotateX(0deg); }
+}
+
+@keyframes pulse3d {
+  0%, 100% { 
+    transform: scale(1) rotateY(0deg);
+    box-shadow: var(--shadow-soft);
+  }
+  50% { 
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: var(--shadow-medium);
+  }
 }
