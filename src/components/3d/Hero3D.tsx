@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Float, Text3D, Center } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 export const Hero3D = () => {
@@ -42,46 +42,27 @@ export const Hero3D = () => {
         <pointsMaterial size={0.05} color="#8B5CF6" transparent opacity={0.6} />
       </points>
 
-      {/* 3D Title */}
+      {/* 3D Title - Using simple mesh instead of Text3D */}
       <Float speed={1} rotationIntensity={0.3} floatIntensity={0.8}>
         <group ref={titleRef} position={[0, 1, 0]}>
-          <Center>
-            <Text3D
-              font="/fonts/helvetiker_bold.typeface.json"
-              size={1.2}
-              height={0.3}
-              curveSegments={12}
-              bevelEnabled
-              bevelThickness={0.02}
-              bevelSize={0.02}
-              bevelOffset={0}
-              bevelSegments={5}
-            >
-              ShopHub
-              <meshStandardMaterial 
-                color="#ffffff" 
-                emissive="#8B5CF6" 
-                emissiveIntensity={0.2}
-              />
-            </Text3D>
-          </Center>
+          <mesh>
+            <boxGeometry args={[4, 1, 0.3]} />
+            <meshStandardMaterial 
+              color="#ffffff" 
+              emissive="#8B5CF6" 
+              emissiveIntensity={0.2}
+            />
+          </mesh>
         </group>
       </Float>
 
       {/* Subtitle */}
       <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
         <group position={[0, -0.5, 0]}>
-          <Center>
-            <Text3D
-              font="/fonts/helvetiker_regular.typeface.json"
-              size={0.3}
-              height={0.1}
-              curveSegments={8}
-            >
-              Your Perfect Shopping Experience
-              <meshStandardMaterial color="#ffffff" transparent opacity={0.9} />
-            </Text3D>
-          </Center>
+          <mesh>
+            <boxGeometry args={[3, 0.3, 0.1]} />
+            <meshStandardMaterial color="#ffffff" transparent opacity={0.9} />
+          </mesh>
         </group>
       </Float>
     </group>
