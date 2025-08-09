@@ -70,11 +70,11 @@ const Home = () => {
             <Badge className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
               ✨ New Collection Available
             </Badge>
-            <div className="mb-6 animate-fade-up">
-              <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
+            <div className="mb-6 animate-fade-in-up">
+              <h1 className="text-4xl md:text-6xl font-display font-bold mb-4 animate-text-glow">
                 Discover Your Perfect
               </h1>
-              <span className="block text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">
+              <span className="block text-4xl md:text-6xl font-display font-bold bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent animate-gradient-shift">
                 Shopping Experience
               </span>
             </div>
@@ -105,14 +105,18 @@ const Home = () => {
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-animation" style={{ '--stagger-delay': '0.15s' } as React.CSSProperties}>
             {features.map((feature, index) => (
-              <Card key={index} className="text-center border-0 shadow-soft hover:shadow-medium transition-all duration-300 backdrop-blur-sm bg-white/90 hover:bg-white/95 hover:scale-105">
+              <Card 
+                key={index} 
+                className="text-center border-0 shadow-soft hover:shadow-medium transition-all duration-300 backdrop-blur-sm bg-white/90 hover:bg-white/95 hover-lift hover-glow animate-fade-in-up group"
+                style={{ '--index': index } as React.CSSProperties}
+              >
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-accent">
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-accent group-hover:animate-pulse-3d group-hover:bg-accent/20 transition-all duration-300">
                     {feature.icon}
                   </div>
-                  <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:animate-text-glow">{feature.title}</h3>
                   <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -137,10 +141,10 @@ const Home = () => {
                 to={`/products?category=${category.slug}`}
                 className="group"
               >
-                <Card className="hover:shadow-medium transition-all duration-300 hover:-translate-y-1 overflow-hidden group hover:scale-105 backdrop-blur-sm bg-white/95">
+                <Card className="hover:shadow-medium transition-all duration-300 hover-lift overflow-hidden group backdrop-blur-sm bg-white/95 animate-shimmer hover-glow">
                   <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 group-hover:rotate-12">
-                      <span className="text-2xl text-white font-bold">
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-rotate-3d transition-all duration-300 animate-pulse-3d">
+                      <span className="text-2xl text-white font-bold animate-text-glow">
                         {category.name.charAt(0)}
                       </span>
                     </div>
@@ -198,7 +202,7 @@ const Home = () => {
                 Don't miss out on incredible deals across all categories. Limited stock available!
               </p>
               <Link to="/products?sale=true">
-                <Button size="lg" className="bg-white text-destructive hover:bg-gray-100 backdrop-blur-sm hover:scale-105 transition-all">
+                <Button size="lg" className="bg-white text-destructive hover:bg-gray-100 backdrop-blur-sm btn-3d animate-pulse-3d hover-glow">
                   Shop Sale Items <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -238,7 +242,7 @@ const Home = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               />
-              <Button className="btn-primary px-8 hover:scale-105 transition-all">Subscribe</Button>
+              <Button className="btn-primary px-8 btn-3d animate-glow-pulse hover-glow">Subscribe</Button>
             </div>
           </div>
         </div>
