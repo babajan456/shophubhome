@@ -11,7 +11,7 @@ import { FloatingShapes } from "@/components/3d/Shapes3D";
 import { Hero3D } from "@/components/3d/Hero3D";
 import { CategoryIcons3D } from "@/components/3d/CategoryIcons3D";
 import { useThreeD } from "@/context/ThreeDContext";
-import { featuredProducts, newProducts, saleProducts, categories } from "@/data/products";
+import { featuredProducts, newProducts, saleProducts } from "@/data/products";
 import { Product } from "@/types";
 
 const Home = () => {
@@ -131,40 +131,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Shop by Category</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore our wide range of categories and find exactly what you're looking for
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {categories.map((category, index) => (
-              <Link
-                key={category.id}
-                to={`/products?category=${category.slug}`}
-                className="group"
-              >
-                <Card className="hover:shadow-medium transition-all duration-300 hover-lift overflow-hidden group backdrop-blur-sm bg-white/95 animate-shimmer hover-glow">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-rotate-3d transition-all duration-300 animate-pulse-3d">
-                      <span className="text-2xl text-white font-bold animate-text-glow">
-                        {category.name.charAt(0)}
-                      </span>
-                    </div>
-                    <h3 className="font-semibold mb-1">{category.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {category.productCount} items
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
       {/* Featured Products */}
