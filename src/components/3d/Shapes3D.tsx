@@ -11,15 +11,14 @@ export const FloatingShapes = () => {
     const time = state.clock.elapsedTime;
     
     if (groupRef.current) {
-      groupRef.current.rotation.y = time * 0.15;
-      groupRef.current.rotation.x = Math.sin(time * 0.2) * 0.1;
+      // Minimal slow rotation only
+      groupRef.current.rotation.y = time * 0.05;
     }
 
     if (morphRef.current) {
       morphRef.current.children.forEach((child, i) => {
-        child.scale.setScalar(1 + Math.sin(time * 2 + i) * 0.3);
-        child.rotation.x = time * (0.5 + i * 0.1);
-        child.rotation.z = time * (0.3 + i * 0.05);
+        // Only gentle scale breathing effect
+        child.scale.setScalar(1 + Math.sin(time * 1 + i) * 0.1);
       });
     }
   });
@@ -171,7 +170,8 @@ export const ProductShowcase = () => {
 
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+      // Keep product showcase stationary
+      groupRef.current.rotation.y = 0;
     }
   });
 

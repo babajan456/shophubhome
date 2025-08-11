@@ -13,31 +13,13 @@ export const Hero3D = () => {
     const time = state.clock.elapsedTime;
     
     if (titleRef.current) {
-      titleRef.current.rotation.y = Math.sin(time * 0.5) * 0.2;
-      titleRef.current.rotation.x = Math.sin(time * 0.3) * 0.1;
-      titleRef.current.position.y = 1 + Math.sin(time * 0.8) * 0.3;
+      // Keep title stationary, only gentle breathing effect
+      titleRef.current.position.y = 1 + Math.sin(time * 0.8) * 0.1;
     }
     
     if (particlesRef.current) {
-      particlesRef.current.rotation.y = time * 0.1;
-      particlesRef.current.rotation.x = Math.sin(time * 0.2) * 0.1;
-    }
-
-    if (waveRef.current) {
-      waveRef.current.children.forEach((child, i) => {
-        child.position.y = Math.sin(time * 2 + i * 0.5) * 0.5;
-        child.rotation.z = time * 0.5 + i;
-      });
-    }
-
-    if (geometryRef.current) {
-      geometryRef.current.rotation.y = time * 0.1;
-      geometryRef.current.children.forEach((child, i) => {
-        const offset = i * Math.PI * 0.5;
-        child.position.x = Math.cos(time * 0.5 + offset) * 3;
-        child.position.z = Math.sin(time * 0.5 + offset) * 3;
-        child.rotation.y = time * (1 + i * 0.1);
-      });
+      // Only slow rotation, no movement
+      particlesRef.current.rotation.y = time * 0.05;
     }
   });
 
