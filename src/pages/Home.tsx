@@ -10,10 +10,12 @@ import { Scene3D } from "@/components/3d/Scene3D";
 import { FloatingShapes } from "@/components/3d/Shapes3D";
 import { Hero3D } from "@/components/3d/Hero3D";
 import { CategoryIcons3D } from "@/components/3d/CategoryIcons3D";
+import { useThreeD } from "@/context/ThreeDContext";
 import { featuredProducts, newProducts, saleProducts, categories } from "@/data/products";
 import { Product } from "@/types";
 
 const Home = () => {
+  const { threeDEnabled } = useThreeD();
   
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
@@ -58,12 +60,14 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         
         {/* 3D Background */}
-        <div className="absolute inset-0">
-          <Scene3D cameraPosition={[0, 0, 6]}>
-            <FloatingShapes />
-            <Hero3D />
-          </Scene3D>
-        </div>
+        {threeDEnabled && (
+          <div className="absolute inset-0">
+            <Scene3D cameraPosition={[0, 0, 6]}>
+              <FloatingShapes />
+              <Hero3D />
+            </Scene3D>
+          </div>
+        )}
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -98,11 +102,13 @@ const Home = () => {
       {/* 3D Features Section */}
       <section className="py-16 surface-gradient relative overflow-hidden">
         {/* 3D Background for features */}
-        <div className="absolute inset-0 opacity-30">
-          <Scene3D cameraPosition={[0, 0, 10]} enableControls={false}>
-            <CategoryIcons3D />
-          </Scene3D>
-        </div>
+        {threeDEnabled && (
+          <div className="absolute inset-0 opacity-30">
+            <Scene3D cameraPosition={[0, 0, 10]} enableControls={false}>
+              <CategoryIcons3D />
+            </Scene3D>
+          </div>
+        )}
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-animation" style={{ '--stagger-delay': '0.15s' } as React.CSSProperties}>
@@ -188,11 +194,13 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="bg-gradient-to-r from-destructive to-red-600 rounded-2xl p-8 md:p-12 text-white text-center relative overflow-hidden backdrop-blur-sm">
             {/* 3D Background for sale section */}
-            <div className="absolute inset-0 opacity-20">
-              <Scene3D cameraPosition={[0, 0, 8]}>
-                <FloatingShapes />
-              </Scene3D>
-            </div>
+            {threeDEnabled && (
+              <div className="absolute inset-0 opacity-20">
+                <Scene3D cameraPosition={[0, 0, 8]}>
+                  <FloatingShapes />
+                </Scene3D>
+              </div>
+            )}
             
             <div className="relative z-10">
               <Badge className="mb-4 bg-white text-destructive backdrop-blur-sm">Limited Time</Badge>

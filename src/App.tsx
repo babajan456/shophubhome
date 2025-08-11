@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "@/context/CartContext";
+import { ThreeDProvider } from "@/context/ThreeDContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { SecurityHeaders } from "@/components/SecurityHeaders";
@@ -30,7 +31,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <AuthProvider>
-        <CartProvider>
+        <ThreeDProvider>
+          <CartProvider>
           <SecurityHeaders />
           <Toaster />
           <Sonner />
@@ -56,7 +58,8 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </CartProvider>
+          </CartProvider>
+        </ThreeDProvider>
       </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>

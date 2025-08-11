@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingCart, Search, Menu, X, User, Heart, LogOut } from "lucide-react";
+import { ShoppingCart, Search, Menu, X, User, Heart, LogOut, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -8,12 +8,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
+import { useThreeD } from "@/context/ThreeDContext";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { items, getItemCount } = useCart();
   const { user, signOut, loading } = useAuth();
+  const { threeDEnabled, toggleThreeD } = useThreeD();
   const location = useLocation();
 
   const navigation = [
@@ -81,6 +83,17 @@ const Header = () => {
               onClick={() => setIsSearchOpen(!isSearchOpen)}
             >
               <Search className="h-5 w-5" />
+            </Button>
+
+            {/* 3D Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleThreeD}
+              className="relative"
+              title={threeDEnabled ? "Disable 3D Effects" : "Enable 3D Effects"}
+            >
+              <Box className={`h-5 w-5 transition-colors ${threeDEnabled ? "text-accent" : "text-muted-foreground"}`} />
             </Button>
 
             {/* Wishlist */}
