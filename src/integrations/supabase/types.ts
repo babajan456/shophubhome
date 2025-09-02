@@ -334,6 +334,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "orders_delivery_partner_id_fkey"
+            columns: ["delivery_partner_id"]
+            isOneToOne: false
+            referencedRelation: "delivery_partners_public"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "orders_restaurant_id_fkey"
             columns: ["restaurant_id"]
             isOneToOne: false
@@ -527,10 +534,49 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      delivery_partners_public: {
+        Row: {
+          id: string | null
+          is_active: boolean | null
+          is_available: boolean | null
+          name: string | null
+          rating: number | null
+          total_deliveries: number | null
+          vehicle_type: string | null
+        }
+        Insert: {
+          id?: string | null
+          is_active?: boolean | null
+          is_available?: boolean | null
+          name?: string | null
+          rating?: number | null
+          total_deliveries?: number | null
+          vehicle_type?: string | null
+        }
+        Update: {
+          id?: string | null
+          is_active?: boolean | null
+          is_available?: boolean | null
+          name?: string | null
+          rating?: number | null
+          total_deliveries?: number | null
+          vehicle_type?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      get_public_delivery_partner_info: {
+        Args: { partner_id: string }
+        Returns: {
+          id: string
+          is_available: boolean
+          name: string
+          rating: number
+          total_deliveries: number
+          vehicle_type: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
