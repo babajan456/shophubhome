@@ -1,11 +1,22 @@
+// Cart data encryption utilities with dynamic key generation
 import CryptoJS from 'crypto-js';
 
-const ENCRYPTION_KEY = 'cart-data-key-2024';
+// Generate a session-based encryption key
+const generateEncryptionKey = (): string => {
+  // Use a combination of session storage and random data for key generation
+  let sessionKey = sessionStorage.getItem('cart-session-key');
+  if (!sessionKey) {
+    sessionKey = CryptoJS.lib.WordArray.random(256/8).toString();
+    sessionStorage.setItem('cart-session-key', sessionKey);
+  }
+  return sessionKey;
+};
 
 export const encryptData = (data: any): string => {
   try {
     const jsonString = JSON.stringify(data);
-    const encrypted = CryptoJS.AES.encrypt(jsonString, ENCRYPTION_KEY).toString();
+    const encryptionKey = generateEncryptionKey();
+    const encrypted = CryptoJS.AES.encrypt(jsonString, encryptionKey).toString();
     return encrypted;
   } catch (error) {
     console.error('Encryption failed:', error);
@@ -15,7 +26,8 @@ export const encryptData = (data: any): string => {
 
 export const decryptData = (encryptedData: string): any => {
   try {
-    const decrypted = CryptoJS.AES.decrypt(encryptedData, ENCRYPTION_KEY);
+    const encryptionKey = generateEncryptionKey();
+    const decrypted = CryptoJS.AES.decrypt(encryptedData, encryptionKey);
     const jsonString = decrypted.toString(CryptoJS.enc.Utf8);
     return JSON.parse(jsonString);
   } catch (error) {

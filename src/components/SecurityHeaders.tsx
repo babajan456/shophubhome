@@ -11,13 +11,8 @@ export const SecurityHeaders = () => {
       document.head.appendChild(cspMeta);
     }
 
-    // Set X-Frame-Options
-    if (!document.querySelector('meta[http-equiv="X-Frame-Options"]')) {
-      const frameOptionsMeta = document.createElement('meta');
-      frameOptionsMeta.httpEquiv = 'X-Frame-Options';
-      frameOptionsMeta.content = 'DENY';
-      document.head.appendChild(frameOptionsMeta);
-    }
+    // Note: X-Frame-Options removed to allow iframe embedding in Lovable
+    // CSP policy above provides adequate clickjacking protection
 
     // Set X-Content-Type-Options
     if (!document.querySelector('meta[http-equiv="X-Content-Type-Options"]')) {
