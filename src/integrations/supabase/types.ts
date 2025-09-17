@@ -122,6 +122,13 @@ export type Database = {
             referencedRelation: "restaurants"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "menu_categories_restaurant_id_fkey"
+            columns: ["restaurant_id"]
+            isOneToOne: false
+            referencedRelation: "restaurants_public"
+            referencedColumns: ["id"]
+          },
         ]
       }
       menu_items: {
@@ -216,6 +223,13 @@ export type Database = {
             columns: ["restaurant_id"]
             isOneToOne: false
             referencedRelation: "restaurants"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "menu_items_restaurant_id_fkey"
+            columns: ["restaurant_id"]
+            isOneToOne: false
+            referencedRelation: "restaurants_public"
             referencedColumns: ["id"]
           },
         ]
@@ -347,6 +361,13 @@ export type Database = {
             referencedRelation: "restaurants"
             referencedColumns: ["id"]
           },
+          {
+            foreignKeyName: "orders_restaurant_id_fkey"
+            columns: ["restaurant_id"]
+            isOneToOne: false
+            referencedRelation: "restaurants_public"
+            referencedColumns: ["id"]
+          },
         ]
       }
       profiles: {
@@ -435,6 +456,13 @@ export type Database = {
             columns: ["restaurant_id"]
             isOneToOne: false
             referencedRelation: "restaurants"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "restaurant_reviews_restaurant_id_fkey"
+            columns: ["restaurant_id"]
+            isOneToOne: false
+            referencedRelation: "restaurants_public"
             referencedColumns: ["id"]
           },
         ]
@@ -561,6 +589,90 @@ export type Database = {
           rating?: number | null
           total_deliveries?: number | null
           vehicle_type?: string | null
+        }
+        Relationships: []
+      }
+      restaurants_public: {
+        Row: {
+          address: string | null
+          banner_url: string | null
+          city: string | null
+          closing_time: string | null
+          created_at: string | null
+          cuisine_type: string[] | null
+          delivery_fee: number | null
+          delivery_time_max: number | null
+          delivery_time_min: number | null
+          description: string | null
+          id: string | null
+          image_url: string | null
+          is_accepting_orders: boolean | null
+          is_active: boolean | null
+          latitude: number | null
+          longitude: number | null
+          minimum_order: number | null
+          name: string | null
+          opening_time: string | null
+          postal_code: string | null
+          rating: number | null
+          review_count: number | null
+          slug: string | null
+          state: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          address?: string | null
+          banner_url?: string | null
+          city?: string | null
+          closing_time?: string | null
+          created_at?: string | null
+          cuisine_type?: string[] | null
+          delivery_fee?: number | null
+          delivery_time_max?: number | null
+          delivery_time_min?: number | null
+          description?: string | null
+          id?: string | null
+          image_url?: string | null
+          is_accepting_orders?: boolean | null
+          is_active?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          minimum_order?: number | null
+          name?: string | null
+          opening_time?: string | null
+          postal_code?: string | null
+          rating?: number | null
+          review_count?: number | null
+          slug?: string | null
+          state?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          address?: string | null
+          banner_url?: string | null
+          city?: string | null
+          closing_time?: string | null
+          created_at?: string | null
+          cuisine_type?: string[] | null
+          delivery_fee?: number | null
+          delivery_time_max?: number | null
+          delivery_time_min?: number | null
+          description?: string | null
+          id?: string | null
+          image_url?: string | null
+          is_accepting_orders?: boolean | null
+          is_active?: boolean | null
+          latitude?: number | null
+          longitude?: number | null
+          minimum_order?: number | null
+          name?: string | null
+          opening_time?: string | null
+          postal_code?: string | null
+          rating?: number | null
+          review_count?: number | null
+          slug?: string | null
+          state?: string | null
+          updated_at?: string | null
         }
         Relationships: []
       }
