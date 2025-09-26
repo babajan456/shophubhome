@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Truck, Clock, Globe, Package } from "lucide-react";
+import { Truck, Clock, Globe, Package, CheckCircle } from "lucide-react";
+import shippingDeliveryImage from "@/assets/images/shipping-delivery.jpg";
 
 const Shipping = () => {
   const shippingOptions = [
@@ -33,7 +34,15 @@ const Shipping = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">Shipping Information</h1>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-8">Shipping Information</h1>
+          <img
+            src={shippingDeliveryImage}
+            alt="Fast and reliable delivery service"
+            className="rounded-2xl shadow-lg mx-auto max-w-2xl w-full h-auto mb-6"
+          />
+          <p className="text-muted-foreground">Fast, reliable delivery to your doorstep</p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {shippingOptions.map((option, index) => {
@@ -54,25 +63,34 @@ const Shipping = () => {
         <div className="space-y-8">
           <Card>
             <CardHeader>
-              <CardTitle>Shipping Policy</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <CheckCircle className="h-5 w-5 text-green-500" />
+                Shipping Policy
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p>
-                <strong>Processing Time:</strong> Orders are typically processed within 1-2 business days. 
-                Orders placed on weekends or holidays will be processed on the next business day.
-              </p>
-              <p>
-                <strong>Free Shipping:</strong> We offer free standard shipping on all orders over $50 
-                within the continental United States.
-              </p>
-              <p>
-                <strong>Tracking:</strong> Once your order ships, you'll receive a confirmation email 
-                with tracking information so you can monitor your package's progress.
-              </p>
-              <p>
-                <strong>Address Accuracy:</strong> Please ensure your shipping address is accurate. 
-                We are not responsible for packages delivered to incorrect addresses provided by the customer.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div>
+                    <strong className="text-primary">Processing Time:</strong>
+                    <p className="text-muted-foreground">Orders are typically processed within 1-2 business days. Orders placed on weekends or holidays will be processed on the next business day.</p>
+                  </div>
+                  <div>
+                    <strong className="text-primary">Free Shipping:</strong>
+                    <p className="text-muted-foreground">We offer free standard shipping on all orders over $50 within the continental United States.</p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <strong className="text-primary">Tracking:</strong>
+                    <p className="text-muted-foreground">Once your order ships, you'll receive a confirmation email with tracking information so you can monitor your package's progress.</p>
+                  </div>
+                  <div>
+                    <strong className="text-primary">Address Accuracy:</strong>
+                    <p className="text-muted-foreground">Please ensure your shipping address is accurate. We are not responsible for packages delivered to incorrect addresses provided by the customer.</p>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
 

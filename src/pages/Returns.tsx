@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, XCircle, Clock } from "lucide-react";
+import { CheckCircle, XCircle, Clock, RotateCcw } from "lucide-react";
+import returnsProcessImage from "@/assets/images/returns-process.jpg";
 
 const Returns = () => {
   const returnProcess = [
@@ -48,7 +49,15 @@ const Returns = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">Returns & Exchanges</h1>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-8">Returns & Exchanges</h1>
+          <img
+            src={returnsProcessImage}
+            alt="Easy returns process"
+            className="rounded-2xl shadow-lg mx-auto max-w-2xl w-full h-auto mb-6"
+          />
+          <p className="text-muted-foreground">Hassle-free returns within 30 days</p>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <Card>
@@ -104,13 +113,20 @@ const Returns = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Return Process</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <RotateCcw className="h-5 w-5 text-primary" />
+              Return Process
+            </CardTitle>
+            <p className="text-muted-foreground">Follow these simple steps to return your item</p>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
               {returnProcess.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg mb-3 mx-auto">
+                <div key={index} className="text-center relative">
+                  {index < returnProcess.length - 1 && (
+                    <div className="hidden md:block absolute top-6 left-full w-full h-0.5 bg-border"></div>
+                  )}
+                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg mb-3 mx-auto relative z-10">
                     {step.step}
                   </div>
                   <h3 className="font-semibold mb-2">{step.title}</h3>
